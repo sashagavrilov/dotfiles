@@ -1,0 +1,35 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+	editor = vim
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	hist = log --pretty=format:\"%h %ad |[%an] > %s%d\" --graph --date=short
+	ca = commit --amend --reuse-message=HEAD
+	br = for-each-ref --sort='-authordate:iso8601' --format='  %(authordate:iso8601)%09%(refname:short)' refs/heads
+[color]
+	ui = auto
+[branch]
+	autosetuprebase = always
+[merge]
+	tool = opendiff
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[push]
+	default = simple
