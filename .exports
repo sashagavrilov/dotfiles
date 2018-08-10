@@ -25,7 +25,9 @@ export GREP_OPTIONS="--color=auto"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Set Default Java Version
-export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.8*`
+if [ -e /url/lib/java_home ]; then
+  /usr/libexec/java_home -d64 -v 1.8* &> /dev/null && export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.8*`
+fi;
 
 # Set Maven options
 export MAVEN_OPTS="-Xmx1024M"

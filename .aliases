@@ -123,12 +123,15 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-function readlink() {
-    /usr/local/bin/greadlink "$@"
-}
+#function readlink() {
+#    /usr/local/bin/greadlink "$@"
+#}
 
-export -f readlink
+#export -f readlink
 
 # launch java shell
-alias jshell10="JAVA_HOME=`/usr/libexec/java_home -d64 -v 10.*`  jshell"
-alias jshell9="JAVA_HOME=`/usr/libexec/java_home -d64 -v 9.*`  jshell"
+if [ -e /url/lib/java_home ]; then
+    /usr/libexec/java_home -d64 -v 10.* &>/dev/null && alias jshell10="JAVA_HOME=`/usr/libexec/java_home -d64 -v 10.*`  jshell"
+    /usr/libexec/java_home -d64 -v 9.* &>/dev/null  && alias jshell9="JAVA_HOME=`/usr/libexec/java_home -d64 -v 9.*`  jshell"  
+fi;
+
