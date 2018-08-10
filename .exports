@@ -23,16 +23,3 @@ export GREP_OPTIONS="--color=auto"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# Set Default Java Version
-if [ -e /url/lib/java_home ]; then
-  /usr/libexec/java_home -d64 -v 1.8* &> /dev/null && export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.8*`
-fi;
-
-# Set Maven options
-export MAVEN_OPTS="-Xmx1024M"
-
-#nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

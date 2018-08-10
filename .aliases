@@ -128,10 +128,3 @@ alias reload="exec $SHELL -l"
 #}
 
 #export -f readlink
-
-# launch java shell
-if [ -e /url/lib/java_home ]; then
-    /usr/libexec/java_home -d64 -v 10.* &>/dev/null && alias jshell10="JAVA_HOME=`/usr/libexec/java_home -d64 -v 10.*`  jshell"
-    /usr/libexec/java_home -d64 -v 9.* &>/dev/null  && alias jshell9="JAVA_HOME=`/usr/libexec/java_home -d64 -v 9.*`  jshell"  
-fi;
-

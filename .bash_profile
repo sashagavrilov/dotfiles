@@ -9,19 +9,13 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
-
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
-
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
-
 # Enable some Bash 4 features when possible:
+# * `nocaseglob` – case-insensitive globbing (used in pathname expansion)
+# * `histappend` – append to the Bash history file, rather than overwriting it
+# * `cdspell` – autocorrect typos in path names when using `cd`
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
-# * Recursive globbing, e.g. `echo **/*.txt`
-for option in autocd globstar; do
+# * `globstar` – recursive globbing, e.g. `echo **/*.txt`
+for option in nocaseglob histappend cdspell autocd globstar; do
 	shopt -s "$option" 2> /dev/null;
 done;
 
